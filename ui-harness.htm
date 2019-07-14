@@ -1,0 +1,158 @@
+<html>
+   <head>
+      <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+      <title>Financial Reactor</title>
+      <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+      <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+      <script type="text/javascript" src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
+      <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css">
+      <style type="text/css">
+         body {
+			background-color: #f1f1f1;
+         }
+      </style>
+	  <script type = "text/javascript" src = "https://rawgit.com/rs9media/financial-reactor/master/core.js"></script>
+      <script type="text/javascript">
+		$(document).ready(function() {
+			new FinancialReactor({
+					"L1": new Ring({
+						"label": "L1",
+						"generators": [
+							new FinancialCurrentGenerator({
+								"label": "Uber Eats",
+								"amount": 30
+							})
+						],
+						"loads": [
+							new FinancialCurrentLoad({
+								"label": "Operator",
+								"amount": 7
+							}),
+							new FinancialCurrentLoad({
+								"label": "GBV/ARES-5",
+								"amount": 7
+							}),
+							new FinancialCurrentLoad({
+								"label": "GBV/ARES-5 Insurance",
+								"amount": 2.41
+							}),
+							new FinancialCurrentLoad({
+								"label": "Comm Package",
+								"amount": 1.61
+							})
+						]
+					}),
+					"L2": new Ring({
+						"label": "L2",
+						"generators": [
+							new FinancialCurrentGenerator({
+								"label": "Type-W Development Contracts",
+								"amount": 0
+							}),
+							new FinancialCurrentGenerator({
+								"label": "Type-W Maintenance Contracts",
+								"amount": 2
+							})
+						],
+						"loads": [
+							/*v L1 Ring v*/
+							new FinancialCurrentLoad({
+								"label": "Operator",
+								"amount": 7
+							}),
+							new FinancialCurrentLoad({
+								"label": "GBV/ARES-5",
+								"amount": 7
+							}),
+							new FinancialCurrentLoad({
+								"label": "GBV/ARES-5 Insurance",
+								"amount": 2.41
+							}),
+							new FinancialCurrentLoad({
+								"label": "Comm Package",
+								"amount": 1.61
+							}),
+							/*^ L1 Ring ^*/
+							new FinancialCurrentLoad({
+								"label": "MWS/FA-300",
+								"amount": 21.66
+							}),
+							new FinancialCurrentLoad({
+								"label": "ENGINEER HIERARCH",
+								"amount": 10.66
+							}),
+						]
+					}),
+					"L3": new Ring({
+						"label": "L3",
+						"generators": [
+							new FinancialCurrentGenerator({
+								"label": "Type-W Development Contracts",
+								"amount": 0
+							}),
+							new FinancialCurrentGenerator({
+								"label": "Type-W Maintenance Contracts",
+								"amount": 0
+							}),
+							new FinancialCurrentGenerator({
+								"label": "Type-R Sales Profits",
+								"amount": 0
+							}),
+							new FinancialCurrentGenerator({
+								"label": "Type-P Subscriptions",
+								"amount": 0
+							})
+						],
+						"loads": [
+							/*v L1 Ring v*/
+							new FinancialCurrentLoad({
+								"label": "Operator",
+								"amount": 7
+							}),
+							new FinancialCurrentLoad({
+								"label": "GBV/ARES-5",
+								"amount": 7
+							}),
+							new FinancialCurrentLoad({
+								"label": "GBV/ARES-5 Insurance",
+								"amount": 2.41
+							}),
+							new FinancialCurrentLoad({
+								"label": "Comm Package",
+								"amount": 1.61
+							}),
+							/*^ L1 Ring ^*/
+							/*v L2 Ring v*/
+							new FinancialCurrentLoad({
+								"label": "MWS/FA-300",
+								"amount": 21.66
+							}),
+							new FinancialCurrentLoad({
+								"label": "ENGINEER HIERARCH",
+								"amount": 10.66
+							}),
+							/*^ L2 Ring */
+							new FinancialCurrentLoad({
+								"label": "ARTISAN HIERARCH",
+								"amount": 10.66
+							}),
+							new FinancialCurrentLoad({
+								"label": "DATA HIERARCH",
+								"amount": 10.66
+							}),
+						]
+					})
+				});
+		});	  
+      </script>
+   </head>
+   <body>
+      <div class="container-fluid">
+         <div class="row">
+            <div class="col-md-12" id="stage" style = "text-align:center;">
+               <!-- lel -->
+            </div>
+         </div>
+      </div>
+   </body>
+</html>
